@@ -6,33 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Інтернет-магазин "Флора"</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
     <header>
-        <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./images/baner1.png" class="d-block w-100" alt="Знижки до -30% до дня матері">
-                </div>
-                <div class="carousel-item">
-                    <img src="./images/baner2.png" class="d-block w-100" alt="Знижка 10% при першому замовленні">
-                </div>
-            </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Попередня</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Наступна</span>
-                </button>
-            </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light main-menu">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><img src="./images/logo.jpg"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
@@ -85,7 +64,64 @@
                 </div>
             </div>
         </nav>
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./images/baner1.png" class="d-block w-100" alt="Знижки до -30% до дня матері">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/baner2.png" class="d-block w-100" alt="Знижка 10% при першому замовленні">
+                </div>
+            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Попередня</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Наступна</span>
+                </button>
+        </div>
     </header>
+    <div class="cont-content-yee">
+        <p>there will be items soon...</p>
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="foot">
+                <div class="column-foot-1">
+                    <h6>Контакти</h6>
+                    <p><i class="fa-regular fa-at"></i> mystore13email14@gmail.com</p>
+                    <h6>Де ми знаходимось?</h6>
+                    <p><i class="fa-duotone fa-solid fa-compass"></i> м. Київ вул. Григорія Сковороди, 12/8</p>
+                </div>
+                <div class="column-foot-1">
+                    <h6>Про нас</h6>
+                    <p>Наш магазин продає рослини, що можна вирощувати як вдома, так і на вулиці. Ми дбаємо про здоров'я рослин та їх надійне пакування перед відправкою.</p>
+                </div>
+                <div class="column-foot">
+                    <h6>Я хочу дізнаватися про все першим!</h6>
+                    <p>Ми будемо надсилати Вам новини нашого магазину, а саме: <i>нові локації магазину, акції, оновлення цін, нові товари у наявності.</i></p>
+                    <form class="foot-form">
+                        <div class="d-flex">
+                            <input class="form-control me-2" type="email" placeholder="Ваша пошта">
+                            <button class="btn btn-primary" type="submit">Підтвердити</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="for-copyright">
+                <div class="copyright-flora">
+                    <hr>
+                    <p>&copy;2026 Flora Shop</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
