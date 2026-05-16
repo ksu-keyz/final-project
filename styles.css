@@ -15,16 +15,38 @@ a img{
 }
 .foot{
     display: flex;
+    flex-wrap: wrap;
 }
-.column-foot{
-    margin: 20px;
-    width: 50%;
-    height: 75%;
+@media (min-width: 768px) {
+    .foot {
+        flex-wrap: nowrap;
+        gap: 30px;
+    }
+
+    .column-foot-1 {
+        width: 25%;
+        margin: 0;
+    }
+
+    .column-foot {
+        width: 45%;
+        margin: 0;
+    }
 }
-.column-foot-1{
-    margin: 20px;
-    width: 25%;
-    height: 75%;
+@media (max-width: 767px) {
+    .column-foot-1, .column-foot {
+        width: 100%;
+        margin: 15px 0;
+    }
+    
+    .foot-form .d-flex {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .foot-form .btn {
+        width: 100%;
+    }
 }
 .copyright-flora{
     width: 100%;
