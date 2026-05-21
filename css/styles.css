@@ -89,9 +89,6 @@ a img{
 .btn-mail{
     background-color: #2ecc71;
 }
-.btn-back{
-    background-color: #f48200;
-}
 .hero-buttons .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -105,7 +102,4 @@ a img{
 }
 .btn-mail:hover {
     background-color: #27ae60;
-}
-.btn-back:hover {
-    background-color: #d67200;
 }
