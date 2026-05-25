@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Finlandica+Headline:ital,wght@0,100..900;1,100..900&family=Lobster&display=swap');
 
-a img{
+a img {
     width: 75px;
 }
-.main-menu{
+
+.main-menu {
     position: relative;
     top: 0;
+}
+.product-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
 }
 .footer {
     background-color: #5a5a5a;
