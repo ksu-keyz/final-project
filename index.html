@@ -10,24 +10,31 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light main-menu">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="./images/logo.jpg"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light main-menu">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./images/logo.jpg"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             <div class="collapse navbar-collapse" id="mainMenu">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Головна</a></li>
                     <li class="nav-item"><a class="nav-link" href="./pages/shopitems.html">Каталог</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./pages/aboutus.html">Про нас</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./pages/delivery.html">Про доставку</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./pages/reviews.html">Відгуки</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Про нас
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./pages/aboutus.html">Про нас</a></li>
+                            <li><a class="dropdown-item" href="./pages/delivery.html">Про доставку</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="./pages/reviews.html">Відгуки</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="./pages/orderform.html">Замовити</a></li>
-                </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     <header class="header-back">
         <div class="container text-center text-sm-start hero-container">
             <h1 class="hero-title">Потрібна допомога?</h1>

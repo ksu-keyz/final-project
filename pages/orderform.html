@@ -15,15 +15,22 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Головна</a></li>
-                    <li class="nav-item"><a class="nav-link" href="shopitems.html">Каталог</a></li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">Про нас</a></li>
-                    <li class="nav-item"><a class="nav-link" href="delivery.html">Про доставку</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Відгуки</a></li>
-                    <li class="nav-item"><a class="nav-link" href="orderform.html">Замовити</a></li>
-                </ul>
+        <div class="collapse navbar-collapse" id="mainMenu">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Головна</a></li>
+                <li class="nav-item"><a class="nav-link" href="shopitems.html">Каталог</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Про нас
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="aboutus.html">Про нас</a></li>
+                        <li><a class="dropdown-item" href="delivery.html">Про доставку</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="reviews.html">Відгуки</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Замовити</a></li>
             </div>
         </div>
     </nav>
