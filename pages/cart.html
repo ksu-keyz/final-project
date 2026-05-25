@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтернет-магазин "Флора"</title>
+    <link rel="stylesheet" href="../css/cartstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light main-menu">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="../images/logo.jpg"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shopitems.html">Каталог</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Про нас
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="aboutus.html">Про нас</a></li>
+                            <li><a class="dropdown-item" href="delivery.html">Про доставку</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="reviews.html">Відгуки</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+        </nav>
+        <div id="Carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="../images/baner2.png" class="d-block w-100" alt="Знижки до -30% до дня матері">
+                </div>
+                <div class="carousel-item" data-bs-interval="10000">
+                    <img src="../images/baner1.png" class="d-block w-100" alt="Знижка 10% при першому замовленні">
+                </div>
+            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#Carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Попередня</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#Carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Наступна</span>
+                </button>
+        </div>
+    </header>
+    <main class="container my-5">
+        <h2 class="fw-bold mb-4 text-dark"><i class="fa-solid fa-basket-shopping text-success me-2"></i>Ваш кошик</h2>
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="bg-light p-4 rounded border shadow-sm">
+                    <div id="cart-container"></div>
+                </div>
+                <div class="btn btn-warning btn-lg w-100 mt-2 fw-bold"><a href="shopitems.html" class="goback">Повернутися до каталогу</a></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="bg-light p-4 rounded border shadow-sm">
+                    <h4 class="fw-bold text-dark mb-3">Оформлення</h4>
+                    <hr>
+                    <h5 class="text-dark mb-4">Разом до сплати: <span id="total-price" class="fw-bold fs-4 text-success">0</span> ₴</h5>
+                    <form action="https://formsubmit.co" method="POST" id="order-form">
+                        <input type="hidden" name="Замовлені_Товари" id="hidden-cart-input">
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold">Ваше Ім'я</label>
+                            <input type="text" name="Name" class="form-control" placeholder="Іван Іванов" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold">Телефон</label>
+                            <input type="tel" name="Phone" class="form-control" placeholder="+380..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold">Електронна пошта</label>
+                            <input type="email" name="Email" class="form-control" placeholder="...@gmail.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold">Коментар (необов'язково)</label>
+                            <textarea type="text" name="Comment" class="form-control" placeholder="Наприклад: Я хочу, щоб моє замовлення було упаковано на подарунок"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg w-100 mt-2 fw-bold">
+                            <i class="fa-solid fa-check me-2"></i>Підтвердити замовлення
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="foot">
+                <div class="column-foot-1">
+                    <h6>Контакти</h6>
+                    <p><i class="fa-regular fa-at"></i> mystore13email14@gmail.com</p>
+                    <h6>Де ми знаходимось?</h6>
+                    <p><i class="fa-duotone fa-solid fa-compass"></i> м. Київ вул. Григорія Сковороди, 12/8</p>
+                </div>
+                <div class="column-foot-1">
+                    <h6>Про нас</h6>
+                    <p>Наш магазин продає рослини, що можна вирощувати як вдома, так і на вулиці. Ми дбаємо про здоров'я рослин та їх надійне пакування перед відправкою.</p>
+                </div>
+                <div class="column-foot">
+                    <h6>Я хочу дізнаватися про все першим!</h6>
+                    <p>Ми будемо надсилати Вам новини нашого магазину, а саме: <i>нові локації магазину, акції, оновлення цін, нові товари у наявності.</i></p>
+                    <form class="foot-form" action="https://formsubmit.co/mystore13email14@gmail.com" method="POST">
+                        <div class="d-flex">
+                            <input class="form-control me-2" name="EmailForNews" type="email" placeholder="Ваша пошта">
+                            <button class="btn btn-primary" type="submit" method="POST">Підтвердити</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="for-copyright">
+                <div class="copyright-flora">
+                    <hr>
+                    <p>&copy;2026 Flora Shop</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function renderCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let container = document.getElementById('cart-container');
+            let totalElement = document.getElementById('total-price');
+            let hiddenInput = document.getElementById('hidden-cart-input');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-4">
+                        <p class="text-muted fs-5">Ваш кошик порожній.</p>
+                        <a href="shopitems.html" class="btn btn-outline-dark mt-2">Повернутися до каталогу</a>
+                    </div>`;
+                totalElement.innerText = "0";
+                hiddenInput.value = "Кошик порожній";
+                return;
+            }
+
+            let html = `
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr class="text-dark">
+                                <th>Фото</th>
+                                <th>Назва</th>
+                                <th>Ціна</th>
+                                <th style="width: 130px;">Кількість</th>
+                                <th>Сума</th>
+                                <th>Дія</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+
+            let total = 0;
+            let itemsText = [];
+
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.quantity; // Рахуємо суму за цей тип квітки
+                total += itemTotal;
+                itemsText.push(`${item.name} (${item.quantity} шт. х ${item.price}₴ = ${itemTotal}₴)`);
+                
+                html += `
+                    <tr class="text-dark">
+                        <td><img src="${item.img}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded border"></td>
+                        <td class="fw-bold">${item.name}</td>
+                        <td>${item.price} ₴</td>
+                        <td>
+                            <!-- Кнопки зміни кількості -->
+                            <div class="d-flex align-items-center gap-1">
+                                <button class="btn btn-sm btn-outline-secondary px-2" onclick="changeQuantity(${index}, -1)">-</button>
+                                <span class="fw-bold px-2">${item.quantity}</span>
+                                <button class="btn btn-sm btn-outline-secondary px-2" onclick="changeQuantity(${index}, 1)">+</button>
+                            </div>
+                        </td>
+                        <td class="fw-bold">${itemTotal} ₴</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${index})">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </td>
+                    </tr>`;
+            });
+
+            html += `</tbody></table></div>`;
+            container.innerHTML = html;
+            totalElement.innerText = total;
+            
+            // Відправляємо детальний звіт на пошту (наприклад: Гвоздика Садова (3 шт. х 85₴ = 255₴))
+            hiddenInput.value = itemsText.join('; ');
+        }
+
+        // Функція для зміни кількості (+1 або -1)
+        function changeQuantity(index, delta) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity += delta;
+            
+            // Якщо кількість стає менше 1, видаляємо товар взагалі
+            if (cart[index].quantity < 1) {
+                cart.splice(index, 1);
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        document.getElementById('order-form').addEventListener('submit', function() {
+            localStorage.removeItem('cart');
+        });
+
+        renderCart();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

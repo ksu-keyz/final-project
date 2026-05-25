@@ -64,23 +64,7 @@ a img{
 .copyright-flora hr {
     border-color: rgba(255, 255, 255, 0.2);
 }
-.forma {
-    background-color: #ffffff;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 1100px;
-}
-.forma .form-control {
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    transition: all 0.2s ease-in-out;
-}
-.forma .form-control:focus {
-    border-color: #198754;
-    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
-}
-.forma ::placeholder {
-    color: #6c757d;
-    font-size: 0.9rem;
+.goback{
+    text-decoration: none;
+    color: white;
 }
