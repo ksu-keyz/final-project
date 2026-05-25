@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store-landing</title>
+    <title>Main</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -21,7 +21,8 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Головна</a></li>
                     <li class="nav-item"><a class="nav-link" href="./pages/shopitems.html">Каталог</a></li>
                     <li class="nav-item"><a class="nav-link" href="./pages/aboutus.html">Про нас</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./pages/aboutdelivery.html">Про доставку</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./pages/delivery.html">Про доставку</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./pages/reviews.html">Відгуки</a></li>
                     <li class="nav-item"><a class="nav-link" href="./pages/orderform.html">Замовити</a></li>
                 </ul>
             </div>
@@ -57,10 +58,10 @@
                 <div class="column-foot">
                     <h6>Я хочу дізнаватися про все першим!</h6>
                     <p>Ми будемо надсилати Вам новини нашого магазину, а саме: <i>нові локації магазину, акції, оновлення цін, нові товари у наявності.</i></p>
-                    <form class="foot-form">
+                    <form class="foot-form" action="https://formsubmit.co/mystore13email14@gmail.com" method="POST">
                         <div class="d-flex">
-                            <input class="form-control me-2" type="email" placeholder="Ваша пошта">
-                            <button class="btn btn-primary" type="submit">Підтвердити</button>
+                            <input class="form-control me-2" name="EmailForNews" type="email" placeholder="Ваша пошта">
+                            <button class="btn btn-primary" type="submit" method="POST">Підтвердити</button>
                         </div>
                     </form>
                 </div>
