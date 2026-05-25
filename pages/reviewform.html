@@ -29,21 +29,18 @@
     </nav>
     <main class="d-flex justify-content-center align-items-center vh-100 bg-light">
         <div class="forma p-4 shadow-sm">
-            <h3 class="mb-4 text-center fw-bold text-dark">Оформлення замовлення</h3>
+            <h3 class="mb-4 text-center fw-bold text-dark">Відгук</h3>
             <form action="https://formsubmit.co/mystore13email14@gmail.com" method="POST">
                 <div class="mb-4">
-                    <input type="text" name="Name" class="form-control form-control-lg" placeholder="Ваше ім'я" required/>
+                    <input type="text" name="Name" class="form-control form-control-lg" placeholder="Ваше ім'я та призвіще" required/>
                 </div>
                 <div class="mb-4">
                     <input type="email" name="Email" class="form-control form-control-lg" placeholder="Ваша електронна пошта" required/>
                 </div>
                 <div class="mb-4">
-                    <input type="tel" name="Telephone" class="form-control form-control-lg" placeholder="Ваш номер телефону" required/>
+                    <textarea name="Comment" class="form-control form-control-lg" rows="4" placeholder="Ваш відгук"></textarea>
                 </div>
-                <div class="mb-4">
-                    <textarea name="Comment" class="form-control form-control-lg" rows="4" placeholder="Ви можете написати сюди свої побажання щодо пакування, відправки чи свої питання щодо замовлення"></textarea>
-                </div>
-                <button type="submit" class="btn btn-success btn-lg w-100 py-3 fw-bold" method="POST">Відправити замовлення</button>
+                <button type="submit" class="btn btn-success btn-lg w-100 py-3 fw-bold" method="POST">Відправити</button>
             </form>
         </div>
     </main>
