@@ -32,7 +32,8 @@
                             <li><a class="dropdown-item" href="reviews.html">Відгуки</a></li>
                         </ul>
                     </li>
-                </div>
+                </ul>
+            </div>
             </div>
         </nav>
         <div id="Carousel" class="carousel slide" data-bs-ride="carousel">
@@ -65,7 +66,7 @@
                 <div class="bg-light p-4 rounded border shadow-sm">
                     <div id="cart-container"></div>
                 </div>
-                <div class="btn btn-warning btn-lg w-100 mt-2 fw-bold"><a href="shopitems.html" class="goback">Повернутися до каталогу</a></div>
+                <a href="shopitems.html" class="btn btn-warning btn-lg w-100 mt-2 fw-bold text-decoration-none text-white">Повернутися до каталогу</a>
             </div>
             <div class="col-lg-4">
                 <div class="bg-light p-4 rounded border shadow-sm">
@@ -88,7 +89,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label text-dark fw-bold">Коментар (необов'язково)</label>
-                            <textarea type="text" name="Comment" class="form-control" placeholder="Наприклад: Я хочу, щоб моє замовлення було упаковано на подарунок"></textarea>
+                            <textarea name="Comment" class="form-control" placeholder="Наприклад: Я хочу, щоб моє замовлення було упаковано на подарунок"></textarea>
                         </div>
                         <button type="submit" class="btn btn-success btn-lg w-100 mt-2 fw-bold" formmethod="POST">
                             <i class="fa-solid fa-check me-2"></i>Підтвердити замовлення
@@ -131,23 +132,31 @@
         </div>
     </footer>
     <script>
+        // Головна функція для відображення кошика на сторінці
         function renderCart() {
+            // Беремо дані кошика з пам'яті браузера (localStorage) та перетворюємо текст у масив об'єктів.
+            // Якщо в пам'яті нічого немає, створюємо порожній масив [].
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let container = document.getElementById('cart-container');
-            let totalElement = document.getElementById('total-price');
-            let hiddenInput = document.getElementById('hidden-cart-input');
             
+            // Знаходимо HTML-елементи на сторінці за їхніми ID
+            let container = document.getElementById('cart-container'); // Сюди вставимо таблицю з товарами
+            let totalElement = document.getElementById('total-price'); // Сюди виведемо фінальну суму
+            let hiddenInput = document.getElementById('hidden-cart-input'); // Приховане поле форми для відправки на пошту
+            
+            // ПЕРЕВІРКА: Якщо кошик порожній
             if (cart.length === 0) {
+                // Записуємо в контейнер повідомлення про порожній кошик та кнопку повернення до магазину
                 container.innerHTML = `
                     <div class="text-center py-4">
                         <p class="text-muted fs-5">Ваш кошик порожній.</p>
                         <a href="shopitems.html" class="btn btn-outline-dark mt-2">Повернутися до каталогу</a>
                     </div>`;
-                totalElement.innerText = "0";
-                hiddenInput.value = "Кошик порожній";
-                return;
+                totalElement.innerText = "0"; // Обнуляємо загальну суму на екрані
+                hiddenInput.value = "Кошик порожній"; // Пишемо текст для форми, якщо її спробують відправити порожньою
+                return; // Зупиняємо виконання функції renderCart, далі код не йде
             }
-
+        
+            // Якщо в кошику є товари, починаємо створювати HTML-структуру таблиці
             let html = `
                 <div class="table-responsive">
                     <table class="table align-middle">
@@ -161,71 +170,110 @@
                                 <th>Дія</th>
                             </tr>
                         </thead>
-                        <tbody>`;
-
-            let total = 0;
-            let itemsText = [];
-
+                        <tbody>`; // Відкриваємо тіло таблиці, куди будемо додавати рядки з товарами
+        
+            let total = 0; // Змінна для підрахунку загальної вартості всього кошика
+            let itemsText = []; // Масив для створення текстового звіту (для відправки на пошту)
+        
+            // Перебираємо кожен товар у кошику через цикл
+            // item — поточний товар (об'єкт), index — його порядковий номер у масиві (0, 1, 2...)
             cart.forEach((item, index) => {
-                let itemTotal = item.price * item.quantity; // Рахуємо суму за цей тип квітки
-                total += itemTotal;
+                let itemTotal = item.price * item.quantity; // Рахуємо суму для цього конкретного товару (ціна х кількість)
+                total += itemTotal; // Додаємо суму цього товару до загальної вартості кошика
+                
+                // Формуємо красивий текст для звіту і додаємо його в масив itemsText
                 itemsText.push(`${item.name} (${item.quantity} шт. х ${item.price}₴ = ${itemTotal}₴)`);
                 
+                // Дописуємо HTML-рядок для поточного товару в загальну змінну html
                 html += `
                     <tr class="text-dark">
+                        <!-- Картинка товару -->
                         <td><img src="${item.img}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded border"></td>
+                        <!-- Назва товару -->
                         <td class="fw-bold">${item.name}</td>
+                        <!-- Ціна за 1 штуку -->
                         <td>${item.price} ₴</td>
                         <td>
-                            <!-- Кнопки зміни кількості -->
+                            <!-- Кнопки для зміни кількості -->
                             <div class="d-flex align-items-center gap-1">
+                                <!-- При натисканні передаємо індекс товару та -1 (зменшити кількість) -->
                                 <button class="btn btn-sm btn-outline-secondary px-2" onclick="changeQuantity(${index}, -1)">-</button>
+                                <!-- Поточна кількість товару -->
                                 <span class="fw-bold px-2">${item.quantity}</span>
+                                <!-- При натисканні передаємо індекс товару та 1 (збільшити кількість) -->
                                 <button class="btn btn-sm btn-outline-secondary px-2" onclick="changeQuantity(${index}, 1)">+</button>
                             </div>
                         </td>
+                        <!-- Загальна сума за цей товар -->
                         <td class="fw-bold">${itemTotal} ₴</td>
                         <td>
+                            <!-- Кнопка видалення товару (кошик). Передає індекс для видалення -->
                             <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(${index})">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </td>
                     </tr>`;
             });
-
+        
+            // Закриваємо теги таблиці після завершення циклу
             html += `</tbody></table></div>`;
+            
+            // Вставляємо згенерований HTML-код таблиці всередину нашого контейнера на сторінці
             container.innerHTML = html;
+            
+            // Виводимо фінальну суму всього кошика в елемент на сторінці
             totalElement.innerText = total;
             
-            // Відправляємо детальний звіт на пошту (наприклад: Гвоздика Садова (3 шт. х 85₴ = 255₴))
+            // Об'єднуємо всі текстові рядки товарів через крапку з комою і записуємо в приховане поле.
+            // Наприклад, у форму запишеться: "Троянда (2 шт. х 100₴ = 200₴); Тюльпан (5 шт. х 50₴ = 255₴)"
             hiddenInput.value = itemsText.join('; ');
         }
-
-        // Функція для зміни кількості (+1 або -1)
+        
+        // Функція для зміни кількості товару (+1 або -1)
         function changeQuantity(index, delta) {
+            // Завантажуємо актуальний кошик з пам'яті
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Знаходимо товар за індексом і змінюємо його кількість на значення delta (додаємо 1 або -1)
             cart[index].quantity += delta;
             
-            // Якщо кількість стає менше 1, видаляємо товар взагалі
+            // Якщо після зменшення кількість товару стала меншою за 1
             if (cart[index].quantity < 1) {
+                // Повністю видаляємо цей товар з масиву (1 елемент за вказаним індексом)
                 cart.splice(index, 1);
             }
             
+            // Перетворюємо оновлений масив кошика назад у текст і зберігаємо в пам'ять браузера
             localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Перемальовуємо кошик на екрані, щоб користувач одразу побачив зміни
             renderCart();
         }
-
+        
+        // Функція для повного видалення товару з кошика (при натисканні на смітник)
         function removeFromCart(index) {
+            // Завантажуємо актуальний кошик з пам'яті
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Видаляємо 1 елемент за вказаним індексом
             cart.splice(index, 1);
+            
+            // Зберігаємо оновлений кошик в пам'ять браузера
             localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Перемальовуємо кошик на екрані
             renderCart();
         }
-
+        
+        // Стежимо за відправкою форми замовлення
         document.getElementById('order-form').addEventListener('submit', function() {
+            // Коли користувач натискає кнопку "Оформити замовлення" і форма успішно відправляється,
+            // ми повністю видаляємо кошик з пам'яті браузера, щоб при наступному візиті він був чистим.
             localStorage.removeItem('cart');
         });
-
+        
+        // Автоматично запускаємо функцію renderCart один раз одразу після завантаження сторінки,
+        // щоб користувач відразу побачив свої товари в кошику, не чекаючи натискання кнопок.
         renderCart();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

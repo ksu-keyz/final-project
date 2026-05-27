@@ -64,61 +64,9 @@ a img{
 .copyright-flora hr {
     border-color: rgba(255, 255, 255, 0.2);
 }
-.header-back{
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/consultation.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 75vh;
+.infor{
     display: flex;
+    justify-content: center;
+    height: 70vh;
     align-items: center;
-    color: #ffffff;
-}
-.hero-container{
-    max-width: 800px;
-}
-.hero-title{
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: -0.5px;
-}
-.hero-subtitle{
-    font-size: 1.15rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #e0e0e0;
-    margin-bottom: 35px;
-}
-.hero-buttons .btn {
-    color: #ffffff !important;
-    font-weight: 600;
-    padding: 12px 28px;
-    border: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-.btn-telegram{
-    background-color: #0088cc;
-}
-.btn-viber{
-    background-color: #732873;
-}
-.btn-mail{
-    background-color: #2ecc71;
-}
-.hero-buttons .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    color: #ffffff !important;
-}
-.btn-telegram:hover {
-    background-color: #0077b3;
-}
-.btn-viber:hover {
-    background-color: #5d1f5d;
-}
-.btn-mail:hover {
-    background-color: #27ae60;
-}
-.telegram-info, .viber-info, .mail-info{
-    display: none;
 }
